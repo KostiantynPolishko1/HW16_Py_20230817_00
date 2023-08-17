@@ -1,0 +1,34 @@
+[
+    {
+        "obj_id": 12,
+        "pos_x": 1,
+        "pos_y": 2,
+        "pos_z": 3,
+        "obj_type": "jhugk",
+        "obj_name": "ng"
+    },
+    {
+        "obj_id": 456,
+        "pos_x": 4,
+        "pos_y": 5,
+        "pos_z": 6,
+        "obj_type": "k';jh",
+        "obj_name": ",cjhdj"
+    },
+    {
+        "obj_id": 123,
+        "pos_x": 1,
+        "pos_y": 2,
+        "pos_z": 3,
+        "obj_type": "ffs",
+        "obj_name": "scs"
+    },
+    {
+        "obj_id": 456,
+        "pos_x": 23,
+        "pos_y": 4,
+        "pos_z": 5,
+        "obj_type": "cc",
+        "obj_name": "scsc"
+    }
+]
