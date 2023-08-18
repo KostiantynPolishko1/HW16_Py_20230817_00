@@ -1,5 +1,4 @@
 import os
-import json
 
 
 class FileIsNotError(Exception):
@@ -22,7 +21,7 @@ class FileIsNotExecuteError(Exception):
     pass
 
 
-def read_data(f_name: str) -> list:
+def check_data(f_name: str) -> bool:
     try:
         if not os.access(f_name, os.F_OK):
             raise FileIsNotError('Data file is absent.')
@@ -32,12 +31,8 @@ def read_data(f_name: str) -> list:
             raise FileIsNotWriteError('Data file is locked for write.')
         elif not os.access(f_name, os.X_OK):
             raise FileIsNotExecuteError('Data file is locked for execute.')
-    except (FileIsNotError, FileIsNotReadError, FileIsNotWriteError, FileIsNotExecuteError) as ex:
+    except Exception as ex:
         print(ex)
-    finally:
-        try:
-            with open(f_name, 'r') as file:
-                return json.load(file)
-        except OSError:
-            arr_data = []
-            return arr_data
+        return False
+    else:
+        return True
