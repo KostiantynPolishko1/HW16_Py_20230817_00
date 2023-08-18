@@ -12,8 +12,10 @@ def print_menu(ind: int, menu: dict) -> None:
 
 
 def receive_pos(max_ind: int, ind_pos=0) -> tuple:
-    min_ind = 0
 
+    print('\n\t\"w\" - Down, \"s\" - Up: ->', end='')
+
+    min_ind = 0
     while True:
         direct = input(" ")
 
@@ -41,3 +43,10 @@ def receive_pos(max_ind: int, ind_pos=0) -> tuple:
 def clean_s() -> None:
     time.sleep(0)
     os.system('CLS')
+
+
+def exit_menu() -> bool:
+    out_submenu = input('\n\texit -> ')
+    if not out_submenu:
+        os.system('CLS')
+        return True
