@@ -1,15 +1,6 @@
 import json
 
 
-def read_data() -> list:
-    try:
-        with open('data.json', 'r') as file:
-            return json.load(file)
-    except:
-        arr_data = []
-        return arr_data
-
-
 def save_data(arr_data: list) -> None:
     with open('data.json', 'w') as file:
         json.dump(arr_data, file, indent=4)

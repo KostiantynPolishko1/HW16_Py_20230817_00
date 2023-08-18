@@ -1,10 +1,10 @@
-import json
 import cosmo
-# Task1 cosmo objects
+import exception
+
 
 if __name__ == '__main__':
-    data = cosmo.read_data()
-    cosmo.add_data(data)
-    cosmo.save_data(data)
+    data = exception.read_data('data.json')
+    # cosmo.add_data(data)
+    # cosmo.save_data(data)
 
-    print('\nEND')
+    print(data)
