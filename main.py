@@ -12,7 +12,8 @@ if __name__ == '__main__':
         1: ['find_data', cosmo.find_data],
         2: ['modify_data', cosmo.modify_data],
         3: ['delete_data', cosmo.delete_data],
-        4: ['get_all_data', cosmo.get_all_data]
+        4: ['get_all_data', cosmo.get_all_data],
+        5: ['exit', cosmo.exit_save]
     }
 
     while True:
@@ -21,6 +22,6 @@ if __name__ == '__main__':
         menu.clean_s()
 
         if not operation:
-            menu_f[ind_menu][1](data, menu_f[ind_menu][0])
-
-    # cosmo.save_data(f_name, 'w', data)
+            if menu_f[ind_menu][1](data, menu_f[ind_menu][0], f_name):
+                print('\tTHE END!')
+                break

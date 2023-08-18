@@ -30,5 +30,13 @@
         "pos_z": 5,
         "obj_type": "cc",
         "obj_name": "scsc"
+    },
+    {
+        "obj_id": 46891,
+        "pos_x": 9,
+        "pos_y": 2,
+        "pos_z": 5,
+        "obj_type": "sfsvvs",
+        "obj_name": "rgbbesbs"
     }
 ]

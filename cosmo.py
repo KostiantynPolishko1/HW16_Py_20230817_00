@@ -24,7 +24,7 @@ def read_data(f_name: str, mode: str) -> list:
         return arr_data
 
 
-def save_data(f_name: str, mode: str, arr_data: list) -> None:
+def save_data(f_name: str, arr_data: list, mode='w') -> None:
     if exception.check_data(f_name):
         with open(f_name, mode) as file:
             json.dump(arr_data, file, indent=4)
@@ -47,20 +47,27 @@ def list_id(ind: int, arr_data: list, name_fun: str) -> None:
         print("   {} {}".format((i + 1), arr_data[i][arr_key[0]]))
 
 
-def add_data(arr_data: list, name_fun: str) -> None:
-    print(name_fun)
-    _id = int(input('\tid -> '))
-    print('\tcoordinate:')
-    x = int(input('\t\tx -> '))
-    y = int(input('\t\ty -> '))
-    z = int(input('\t\tz -> '))
-    _type = input('\t\ttype -> ')
-    _name = input('\t\tname -> ')
+def add_data(arr_data: list, name_fun: str, f_name='') -> bool:
+    while True:
+        print(name_fun)
+        _id = int(input('\tid -> '))
+        print('\tcoordinate:')
+        x = int(input('\t\tx -> '))
+        y = int(input('\t\ty -> '))
+        z = int(input('\t\tz -> '))
+        _type = input('\t\ttype -> ')
+        _name = input('\t\tname -> ')
 
-    arr_data.append({'obj_id': _id, 'pos_x': x, 'pos_y': y, 'pos_z': z, 'obj_type': _type, 'obj_name': _name})
+        arr_data.append({'obj_id': _id, 'pos_x': x, 'pos_y': y, 'pos_z': z, 'obj_type': _type, 'obj_name': _name})
+
+        if menu.exit_menu():
+            return False
+        else:
+            menu.clean_s()
+            continue
 
 
-def find_data(arr_data: list, name_fun: str) -> int:
+def find_data(arr_data: list, name_fun: str, f_name='') -> bool:
 
     ind = 0
     while True:
@@ -75,20 +82,29 @@ def find_data(arr_data: list, name_fun: str) -> int:
                 print('\t{} -> {}'.format(key, arr_data[ind][key]))
 
             if menu.exit_menu():
-                menu.clean_s()
-                return arr_data[ind][arr_key[0]]
+                return False
+                # arr_data[ind][arr_key[0]]
             else:
                 menu.clean_s()
                 continue
 
 
-def modify_data(arr_data: list, name_fun: str) -> None:
+def modify_data(arr_data: list, name_fun: str, f_name='') -> bool:
     print(name_fun)
+    return False
 
 
-def delete_data(arr_data: list, name_fun: str) -> None:
+def delete_data(arr_data: list, name_fun: str, f_name='') -> bool:
     print(name_fun)
+    return False
 
 
-def get_all_data(arr_data: list, name_fun: str) -> None:
+def get_all_data(arr_data: list, name_fun: str, f_name='') -> bool:
     print(name_fun)
+    return False
+
+
+def exit_save(arr_data: list, name_fun: str, f_name) -> bool:
+    print('\n\t', name_fun)
+    save_data(f_name, arr_data, 'w')
+    return True

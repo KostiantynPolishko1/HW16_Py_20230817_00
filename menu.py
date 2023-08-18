@@ -28,7 +28,7 @@ def receive_pos(max_ind: int, ind_pos=0) -> tuple:
             ind_pos -= 1
         else:
             print("ERROR!")
-            print(" \"w\" - Down, \"s\" - Up: ->", end='')
+            print('\n\t\"w\" - Down, \"s\" - Up: ->', end='')
             continue
 
         # check position
