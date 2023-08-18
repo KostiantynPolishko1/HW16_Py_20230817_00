@@ -28,7 +28,9 @@ def save_data(f_name: str, mode: str, arr_data: list) -> None:
         with open(f_name, mode) as file:
             json.dump(arr_data, file, indent=4)
     else:
-        with open(file_rename(f_name), mode) as file:
+        f_name = file_rename(f_name)
+        with open(f_name, mode) as file:
+            print('see new file \'{}\''.format(f_name))
             json.dump(arr_data, file, indent=4)
 
 
@@ -43,3 +45,19 @@ def add_data(arr_data: list) -> None:
     _name = input('\t\tname -> ')
 
     arr_data.append({'obj_id': _id, 'pos_x': x, 'pos_y': y, 'pos_z': z, 'obj_type': _type, 'obj_name': _name})
+
+
+def find_data(arr_data: list) -> None:
+    print('find_data')
+
+
+def modify_data(arr_data: list) -> None:
+    print('modify_data')
+
+
+def delete_data(arr_data: list) -> None:
+    print('delete_data')
+
+
+def get_all_data(arr_data: list) -> None:
+    print('get_data')

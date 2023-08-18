@@ -24,13 +24,13 @@ class FileIsNotExecuteError(Exception):
 def check_data(f_name: str) -> bool:
     try:
         if not os.access(f_name, os.F_OK):
-            raise FileIsNotError('Data file is absent.')
+            raise FileIsNotError('Data file is absent.\n')
         elif not os.access(f_name, os.R_OK):
-            raise FileIsNotReadError('Data file is locked for read.')
+            raise FileIsNotReadError('Data file is locked for read.\n')
         elif not os.access(f_name, os.W_OK):
-            raise FileIsNotWriteError('Data file is locked for write.')
+            raise FileIsNotWriteError('Data file is locked for write.\n')
         elif not os.access(f_name, os.X_OK):
-            raise FileIsNotExecuteError('Data file is locked for execute.')
+            raise FileIsNotExecuteError('Data file is locked for execute.\n')
     except Exception as ex:
         print(ex)
         return False
