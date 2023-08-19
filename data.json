@@ -9,9 +9,9 @@
     },
     {
         "obj_id": 456,
-        "pos_x": 23,
-        "pos_y": 4,
-        "pos_z": 5,
+        "pos_x": "56",
+        "pos_y": "456",
+        "pos_z": "567",
         "obj_type": "cc",
         "obj_name": "scsc"
     },

@@ -36,6 +36,17 @@ def list_id(ind: int, arr_data: list, name_fun: str) -> None:
         print("   {} {}".format((i + 1), arr_data[i][arr_key[0]]))
 
 
+def list_key(data: dict, ind_key: int) -> None:
+    arr_key = list(dict.keys(data))
+    print('data of {} {}'.format(arr_key[0], data[arr_key[0]]))
+
+    for i in range(len(arr_key)):
+        if i == ind_key:
+            print('-> {}\t: {}'.format(arr_key[i], data[arr_key[i]]))
+            continue
+        print('   {}\t: {}'.format(arr_key[i], data[arr_key[i]]))
+
+
 def add_data(arr_data: list, name_fun: str, f_name='') -> bool:
     while True:
         print(name_fun)
@@ -65,11 +76,16 @@ def find_data(arr_data: list, name_fun: str, function='') -> int:
         menu.clean_s()
 
         if not operation:
-            print('data of object:')
-            for key in arr_data[ind]:
-                print('\t{} -> {}'.format(key, arr_data[ind][key]))
+            if not function == 'modify_data':
+                print('data of object:')
+                for key in arr_data[ind]:
+                    print('\t{} -> {}'.format(key, arr_data[ind][key]))
 
-            if function == 'delete_data':
+            if function == 'modify_data':
+                arr_key = list(dict.keys(arr_data[ind]))
+                print('{}\t: {}'.format(arr_key[0], arr_data[ind][arr_key[0]]))
+                return ind
+            elif function == 'delete_data':
                 return ind
             else:
                 if menu.exit_menu():
@@ -80,19 +96,43 @@ def find_data(arr_data: list, name_fun: str, function='') -> int:
 
 
 def modify_data(arr_data: list, name_fun: str, f_name='') -> bool:
-    print(name_fun)
-    return False
+    while True:
+        ind_arr = find_data(arr_data, name_fun, 'modify_data')
+        element = input('\n\tmodify object -> ')
+        menu.clean_s()
+
+        if not element:
+            ind_dic = 0
+            while True:
+                list_key(arr_data[ind_arr], ind_dic)
+                ind_dic, operation = menu.receive_pos(len(arr_data[ind_arr]) - 1, ind_dic)
+                menu.clean_s()
+
+                arr_key = list(dict.keys(arr_data[ind_arr]))
+                if not operation:
+                    print('old {}\t: {}'.format(arr_key[ind_dic], arr_data[ind_arr][arr_key[ind_dic]]))
+                    print('new {}\t: '.format(arr_key[ind_dic]), end='')
+                    arr_data[ind_arr][arr_key[ind_dic]] = input()
+                    menu.clean_s()
+
+                    if menu.exit_menu():
+                        return False
+                    else:
+                        menu.clean_s()
+                        continue
 
 
 def delete_data(arr_data: list, name_fun: str, f_name='') -> bool:
 
     while True:
         ind = find_data(arr_data, name_fun, 'delete_data')
-        del_element = input('\n\tdel object -> ')
-        if not del_element:
+        element = input('\n\tdelete object -> ')
+
+        if not element:
             del arr_data[ind]
             menu.clean_s()
             return False
+
         menu.clean_s()
 
 

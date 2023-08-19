@@ -3,12 +3,12 @@ import time
 
 
 def print_menu(ind: int, menu: dict) -> None:
-    print("\nMenu:")
+    print('\nMenu:')
     for i in range(len(menu)):
         if i == ind:
-            print("-> {} {}".format((i + 1), menu[i][0]))
+            print('-> {} {}'.format((i + 1), menu[i][0]))
             continue
-        print("   {} {}".format((i + 1), menu[i][0]))
+        print('   {} {}'.format((i + 1), menu[i][0]))
 
 
 def receive_pos(max_ind: int, ind_pos=0) -> tuple:
@@ -17,7 +17,7 @@ def receive_pos(max_ind: int, ind_pos=0) -> tuple:
 
     min_ind = 0
     while True:
-        direct = input(" ")
+        direct = input(' ')
 
         # increment & decrement
         if not direct:
@@ -27,7 +27,7 @@ def receive_pos(max_ind: int, ind_pos=0) -> tuple:
         elif direct == 'S' or direct == 's':
             ind_pos -= 1
         else:
-            print("ERROR!")
+            print('ERROR!')
             print('\n\t\"w\" - Down, \"s\" - Up: ->', end='')
             continue
 
