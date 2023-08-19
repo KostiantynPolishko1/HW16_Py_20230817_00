@@ -1,21 +1,5 @@
 [
     {
-        "obj_id": 12,
-        "pos_x": 1,
-        "pos_y": 2,
-        "pos_z": 3,
-        "obj_type": "jhugk",
-        "obj_name": "ng"
-    },
-    {
-        "obj_id": 456,
-        "pos_x": 4,
-        "pos_y": 5,
-        "pos_z": 6,
-        "obj_type": "k';jh",
-        "obj_name": ",cjhdj"
-    },
-    {
         "obj_id": 123,
         "pos_x": 1,
         "pos_y": 2,
@@ -32,11 +16,11 @@
         "obj_name": "scsc"
     },
     {
-        "obj_id": 46891,
-        "pos_x": 9,
-        "pos_y": 2,
-        "pos_z": 5,
-        "obj_type": "sfsvvs",
-        "obj_name": "rgbbesbs"
+        "obj_id": 234,
+        "pos_x": 2,
+        "pos_y": 3,
+        "pos_z": 4,
+        "obj_type": "ggssgh",
+        "obj_name": "sshsh"
     }
 ]
