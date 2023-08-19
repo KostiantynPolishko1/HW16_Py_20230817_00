@@ -137,8 +137,15 @@ def delete_data(arr_data: list, name_fun: str, f_name='') -> bool:
 
 
 def get_all_data(arr_data: list, name_fun: str, f_name='') -> bool:
-    print(name_fun)
-    return False
+    print('\n', name_fun)
+
+    for i in range(len(arr_data)):
+        arr_dict = list(arr_data[i].items())
+        print('\n{}:'.format(arr_dict[0]))
+        print('\t{} {} {}'.format(arr_dict[1], arr_dict[2], arr_dict[3]))
+        print('\t{} {}'.format(arr_dict[4], arr_dict[5]))
+
+    return not menu.exit_menu()
 
 
 def exit_save(arr_data: list, name_fun: str, f_name) -> bool:
